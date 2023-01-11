@@ -24,7 +24,7 @@ function reducer(state, {type, payload}) {
       if (payload.digit === "0" && state.currentOperand === "0") {
         return state;
       } 
-      if (payload.digit === "." && state.currentOperand.includes(".")) {
+      if (payload.digit === "." && state.currentOperand === "." && state.currentOperand.includes(".")) {
         return state;
       }
       return {
@@ -147,7 +147,7 @@ function App() {
     <div className="calculator-grid">
       <div className="output">
         <div className="previous-operand">{formatOperand(previousOperand)}{operation}</div>
-        <div className="current-operand">{formatOperand(currentOperand)}</div>
+        <div className="current-operand">{formatOperand(currentOperand || "0")}</div>
       </div>
 
       {/* First Row */}
